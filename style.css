@@ -1,0 +1,172 @@
+body {
+  font-family: "Georgia", serif;
+  margin: 0;
+  background-color: #fff0f5;
+  color: #333;
+  text-align: center;
+}
+
+header {
+  background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-bottom: 3px solid #d63384;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+main {
+  padding-top: 250px; /* espacio para header */
+}
+
+.logo img {
+  width: 80px;
+  border-radius: 50%;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 2.2em;
+  color: #d63384;
+  letter-spacing: 2px;
+}
+
+.header-botones {
+  margin-top: 10px;
+}
+
+.boton-peque {
+  background-color: #ffc0cb;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 6px 12px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-right: 5px;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.boton-peque:hover {
+  background-color: #d63384;
+  transform: scale(1.05);
+}
+
+.buscador {
+  margin-top: 10px;
+}
+
+.buscador label {
+  margin: 0 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #b03060;
+  transition: 0.3s;
+}
+
+.buscador label:hover {
+  color: #d63384;
+}
+
+.libros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.libro {
+  background-color: #fff;
+  width: 280px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.libro img {
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+}
+
+.libro h3 {
+  color: #d63384;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.libro p {
+  padding: 0 15px;
+  font-size: 0.9em;
+  color: #444;
+  line-height: 1.5;
+}
+
+.boton {
+  display: block;
+  margin: 15px auto 20px;
+  width: 120px;
+  text-align: center;
+  background-color: #ffc0cb;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.boton:hover {
+  background-color: #d63384;
+  transform: scale(1.05);
+}
+
+.libro:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.details {
+  display: none;
+}
+
+.details:target {
+  display: block;
+  padding: 20px;
+}
+
+/* Filtrado CSS-only */
+input[name="filtro"] {
+  display: none;
+}
+
+/* Todos */
+input[value="todos"]:checked ~ section#libros .libro {
+  display: flex;
+}
+
+/* Romance */
+input[value="romance"]:checked ~ section#libros .libro {
+  display: none;
+}
+input[value="romance"]:checked ~ section#libros .libro[data-categoria="romance"] {
+  display: flex;
+}
+
+/* Aventura */
+input[value="aventura"]:checked ~ section#libros .libro {
+  display: none;
+}
+input[value="aventura"]:checked ~ section#libros .libro[data-categoria="aventura"] {
+  display: flex;
+}
+
